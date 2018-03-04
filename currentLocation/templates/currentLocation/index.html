@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>devices</title>
+</head>
+<script>
+    {% if device_list %}
+        <ul>
+        {% for device in device_list %}
+            <li><a href="/currentLocation/{{ device }}/">{{ device.device_text}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No devices are available.</p>
+    {% endif %}
+</script>
+<body>
+
+</body>
+</html>
