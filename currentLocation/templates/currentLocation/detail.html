@@ -1,0 +1,6 @@
+<h1>{{ device.macaddress_text }}</h1>
+<ul>
+{% for device in network.cnetwork_set.all %}
+    <li>{{ device.macaddress_text }}</li>
+{% endfor %}
+</ul>
