@@ -2,7 +2,7 @@
     {% if device_list %}
         <ul>
         {% for device in device_list %}
-            <li><a href="{% url 'detail' device.id %}">{{ device.device_text }}</a></li>
+            <li><a href="{% url 'currentLocation:detail' device.id %}">{{ device.device_text }}</a></li>
         {% endfor %}
         </ul>
     {% else %}

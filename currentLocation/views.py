@@ -17,3 +17,10 @@ def detail(request,device_id):
     except Network.DoesNotExist:
         raise Http404("Device id %s does not exist." %device_id)
     return render(request,'currentLocation/detail.html',{'device':device})
+
+def vote(request,device_id):
+    try:
+        device = Network.objects.get(pk=device_id)
+    except Network.DoesNotExist:
+        raise Http404("Device id %s does not exist."%device_id)
+    return render(request,'currentLocation/detail.html',{'device':device})

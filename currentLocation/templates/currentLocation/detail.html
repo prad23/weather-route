@@ -1,6 +1,12 @@
 <h1>{{ device.macaddress_text }}</h1>
-<ul>
-{% for device in network.cnetwork_set.all %}
-    <li>{{ device.macaddress_text }}</li>
-{% endfor %}
-</ul>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p> {% endif %}
+
+<form action="{ url 'currentLocation:vote' device.id %}" method="post">
+{% csrf_token %}
+    {% for device in network.cnetwork_set.all %}
+        <input type="radio" name="device" id="device{{ forloop.counter }}" value="{{ device.id }}" />
+        <label for="device{{ forloop.counter }}">{{ device.device_text }}</label> <br />
+    {% endfor %}
+    <input type="submit" value="Vote"/>
+</form>
